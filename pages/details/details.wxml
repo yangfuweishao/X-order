@@ -1,0 +1,56 @@
+<view class="main">
+    <view class="goods-box">
+        <image src="{{goods.productIcon}}" class="goods-thumb"></image>
+        
+        <navigator open-type="switchTab" url="../cart/cart">
+            <view class="carts-icon {{scaleCart?'on':''}}">
+                <image src=""></image>
+                <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+            </view>
+        </navigator>
+        
+      <!--  <view class="goods-operation">
+            <text class="goods-operation-num">数量  {{num}}</text>
+            <text class="goods-operation-add" bindtap="addCount">+</text>
+            <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
+            <image src="/image/cart1.png"  class="goods-cart-img" bindtap="addToCart"></image>
+        </view>-->
+        <image wx:if="{{show}}" src="/image/cart1.png" class="to-carts-icon"></image>
+        <view class="goods-left">销量{{goods.stock}}</view>
+        <view class="goods-stock">库存{{goods.productStock}}</view>
+        <view class="goods-title">{{goods.productName}}</view>
+        <view class="goods-price">￥ {{goods.productPrice}}</view>
+    </view>
+    <view class="goods-tab-box">
+        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
+        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">商品评论</view>
+        <view class="goods-content">
+            <view wx:if="{{curIndex === 0}}">{{goods.productDescription}}</view>
+            <view wx:if="{{curIndex === 1}}">
+            <view wx:if="{{list.length>0}}">
+ <!-- 外层 -->
+ <view class='cont_count' wx:for="{{list}}" wx:key="key">
+  <view class='singleTrade'>
+   <view class='name_root'>
+    <image src='{{item.avatarUrl}}' class='img' />
+    <text class='name'>{{item.name}}评论：</text>
+   </view>
+
+
+   <view class='content'>{{item.content}}
+<view class='time'>{{item.createTimeFormatted}}</view>
+   
+   </view>
+
+  </view>
+ </view>
+</view>
+<!-- 否则 -->
+<view wx:else class='cont_count'>
+ <label class='none_tab'>数据为空哦~~</label>
+</view>
+            </view>
+          
+        </view>
+    </view>
+</view>

@@ -1,0 +1,55 @@
+<view class="container">
+<view wx:if="{{list.length>0}}">
+ <!-- 外层 -->
+ <view class='cont_count' wx:for="{{list}}" wx:key="key">
+  <view class='singleTrade'>
+   <view class='name_root'>
+    <image src='{{item.avatarUrl}}' class='img' />
+    <text class='name'>{{item.nickname}}</text>
+   </view>
+
+
+   <view class='content'>{{item.dishName}}
+<view class='time'>{{item.createTimeFormatted}}</view>
+</view>
+<view wx:if="{{item.status!=5}}" class='coent_list'>
+ <label wx:if="{{item.like_status==0}}" data-id="{{item.menuId}}" data-index="{{index}}" class='coent_zan' bindtap='yizan'>赞+{{item.giveLike}}</label>
+ <label wx:if="{{item.like_status==1}}" data-id="{{item.menuId}}" data-index="{{index}}" class='coent_yizan' bindtap='yizan'>已赞+{{item.giveLike}}</label>
+   <label wx:if="{{item.status==1}}" class='coent_del'>已采纳</label>
+     <label wx:if="{{item.status==0}}" class='coent_log_base'>待采纳</label>
+  </view>
+
+  </view>
+ </view>
+</view>
+<!-- 否则 -->
+<view wx:else class='cont_count'>
+ <label class='none_tab'>数据为空哦~~</label>
+</view>
+
+<!-- 提交按钮 -->
+<button class='btn_fabu' bindtap='formSubmit' type='primary'>发布心愿菜品</button>
+</view>
+
+
+<view class='toast-box' hidden='{{!isShowComment}}'>
+ <view class='toastbg'></view>
+ <view class='showToast'>
+  <view class='toast-title'>
+   <text>发布心愿菜单</text>
+  </view>
+  <view class='toast-main'>
+   <view class='toast-input'>
+    <textarea class='textarea_comment' placeholder='请输入您喜欢的菜品' bindinput='setValue'></textarea>
+   </view>
+  </view>
+  <view class='toast-button'>
+   <view class='button1' bindtap='cancelComment'>
+    <button >取消</button>
+   </view>
+   <view class='button2' bindtap='submitComment'>
+    <button >确定</button>
+   </view>
+  </view>
+ </view>
+</view>

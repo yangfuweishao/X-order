@@ -1,0 +1,46 @@
+<view>
+  <swiper indicator-dots="{{true}}" indicator-color="#a5e8d0" autoplay="true" circular="true" interval="3000" duration="3000">
+    <block wx:for="{{banner}}" wx:key="banner">
+      <swiper-item>
+        <image src='{{item.picUrl}}' mode="aspectFill" style="width:100%;height:100%;" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view>食堂地址：第一食堂</view>
+    <view class="search">
+        <navigator url="../search/search">
+            <view class="search-text">
+                <icon class="weui-icon-search_in-box search-icon" type="search" size="14"></icon>
+                搜索菜品
+            </view>
+        </navigator>
+    </view>
+<view class="category-panel1">
+  <view class="category-panel2">
+    <view bindtap='btnclick1' class="category-item">
+      <image class="category-item-image" src="/image/scan.png" />
+      <text class="category-item-text">开始点餐</text>
+    </view>
+     <view bindtap='btnclick2' class="category-item">
+      <image class="category-item-image" src="/image/mall.png" />
+      <text class="category-item-text">菜单浏览</text>
+    </view>
+  </view>
+
+  <view class="category-panel2">
+    <view bindtap='btnclick3' class="category-item">
+      <image class="category-item-image" src="/image/news.png" />
+      <text class="category-item-text">心愿菜单</text>
+    </view>
+    <view class="category-item">
+      <view bindtap='btnclick4' class="category-item">
+        <image class="category-item-image1" src="/image/kf.png" />
+     
+       <text class="category-item-text1">公告</text>
+    </view>
+    </view>
+  </view>
+</view>
+
+
